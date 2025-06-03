@@ -27,13 +27,15 @@ Instruction Decoder / Control Unit
 RAM / ROM  
 CPU Top Module (connecting everything)  
 
-Opcode	Instruction	Description  
-0000	NOP	No operation  
-0001	LDI R, imm	Load immediate to R  
-0010	ADD R	Add R to Accumulator  
-0011	SUB R	Sub R from Accumulator  
-0100	JMP addr	Jump to address  
-0101	JC addr	Jump if carry  
-0110	JZ addr	Jump if zero  
-0111	OUT	Output Accumulator  
-1111	HLT	Halt  
+| Opcode | Instruction | Description            |
+| ------ | ----------- | ---------------------- |
+| 0000   | NOP         | No operation           |
+| 0001   | LDI R, imm  | Load immediate to R    |
+| 0010   | ADD R       | Add R to Accumulator   |
+| 0011   | SUB R       | Sub R from Accumulator |
+| 0100   | JMP addr    | Jump to address        |
+| 0101   | JC addr     | Jump if carry          |
+| 0110   | JZ addr     | Jump if zero           |
+| 0111   | OUT         | Output Accumulator     |
+| 1111   | HLT         | Halt                   |
+
