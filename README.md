@@ -39,6 +39,21 @@ CPU Top Module (connecting everything)
 | 0111   | OUT         | Output Accumulator     |
 | 1111   | HLT         | Halt                   |
 
+The Control Unit (CU) reads the opcode from the instruction and:  
+Sets control signals for:  
+Register loads  
+ALU operations  
+Program Counter (increment or jump)  
+Output enable  
+Advances the CPU through fetch → decode → execute cycles  
+
+| State       | What happens                                 |
+| ----------- | -------------------------------------------- |
+| **FETCH**   | Load instruction from memory into IR         |
+| **DECODE**  | Read opcode & operand, prepare control lines |
+| **EXECUTE** | Perform the instruction (ALU, jump, etc.)    |
+
+
 Files:
 
 8-bit Register Module - reg8.v  
