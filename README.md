@@ -41,5 +41,8 @@ CPU Top Module (connecting everything)
 
 Files:
 
+8-bit Register Module - reg8.v
+Program Counter - pc.v
+
 
 
