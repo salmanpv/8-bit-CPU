@@ -44,6 +44,6 @@ Files:
 8-bit Register Module - reg8.v  
 Program Counter - pc.v  
 ALU Module - alu.v  
-
+Instruction Reg - ir.v  
 
 
