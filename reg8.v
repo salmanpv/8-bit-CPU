@@ -1,3 +1,4 @@
+// 8-bit Register Module
 module reg8 (
     input wire clk,
     input wire reset,
