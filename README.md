@@ -101,7 +101,7 @@ hierarchy -check -top top_cpu
 synth  
 write_json cpu.json  
 
-netlistsvg cpu.json -o cpu_diagram.svg  
+netlistsvg cpu.json -o cpu.svg  
 
 Files:
 
