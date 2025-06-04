@@ -107,7 +107,7 @@ Icarus verilog commands:
 
 iverilog -o sim_output design.v testbench.v  
 vvp sim_output  
-gtkwave wave.vcd  
+gtkwave dump.vcd  
 
 Files:
 
