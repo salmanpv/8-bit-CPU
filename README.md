@@ -92,6 +92,17 @@ Output Register (Out): If the OUT instruction is executed, the value in regA is 
 ROM: This holds the program instructions. The Program Counter provides the address to fetch instructions.  
 Halt Logic: The CPU halts when the HLT instruction is encountered.  
 
+Yosys, Netlistsvg commands:  
+
+yosys  
+
+read_verilog cpu.v  
+hierarchy -check -top top_cpu  
+synth  
+write_json cpu.json  
+
+netlistsvg cpu.json -o cpu_diagram.svg  
+
 Files:
 
 8-bit Register Module - reg8.v  
