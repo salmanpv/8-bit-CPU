@@ -27,17 +27,21 @@ Instruction Decoder / Control Unit
 RAM / ROM  
 CPU Top Module (connecting everything)  
 
-| Opcode | Instruction | Description            |
-| ------ | ----------- | ---------------------- |
-| 0000   | NOP         | No operation           |
-| 0001   | LDI R, imm  | Load immediate to R    |
-| 0010   | ADD R       | Add R to Accumulator   |
-| 0011   | SUB R       | Sub R from Accumulator |
-| 0100   | JMP addr    | Jump to address        |
-| 0101   | JC addr     | Jump if carry          |
-| 0110   | JZ addr     | Jump if zero           |
-| 0111   | OUT         | Output Accumulator     |
-| 1111   | HLT         | Halt                   |
+| Opcode | Mnemonic      | Instruction Format | Description                            |
+| ------ | ------------- | ------------------ | -------------------------------------- |
+| `0000` | `NOP`         | -                  | Do nothing. Moves to next instruction. |
+| `0001` | `LDI R0, imm` | 2 bytes            | Load immediate 8-bit value into `R0`.  |
+| `0010` | `ADD R0`      | 1 byte             | Add `R0` to `A`, result → `A`.         |
+| `0011` | `SUB R0`      | 1 byte             | Subtract `R0` from `A`, result → `A`.  |
+| `0100` | `LDI R1, imm` | 2 bytes            | Load immediate 8-bit value into `R1`.  |
+| `0101` | `ADD R1`      | 1 byte             | Add `R1` to `A`, result → `A`.         |
+| `0110` | `SUB R1`      | 1 byte             | Subtract `R1` from `A`, result → `A`.  |
+| `0111` | `OUT`         | 1 byte             | Output the value of `A`.               |
+| `1000` | `JMP addr`    | 2 bytes            | Jump to 8-bit address unconditionally. |
+| `1001` | `JZ addr`     | 2 bytes            | Jump if `zero` flag is set.            |
+| `1010` | `JC addr`     | 2 bytes            | Jump if `carry` flag is set.           |
+| `1111` | `HLT`         | 1 byte             | Halt execution permanently.            |
+
 
 The Control Unit (CU) reads the opcode from the instruction and:  
 Sets control signals for:  
