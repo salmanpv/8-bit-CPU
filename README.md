@@ -73,6 +73,14 @@ Advances the CPU through fetch → decode → execute cycles
 | 1010   | JC addr     | 2     | ❌ Ignored           | ✅ Yes (addr8)     | Jump to 8-bit address if carry flag set. |
 | 1111   | HLT         | 1     | ❌ Ignored           | ❌ No              | Halt execution permanently.              |
 
+Key Connections of top layer CPU:  
+The Program Counter outputs the instruction address to ROM.  
+The ROM sends the instruction (8-bit) to the Instruction Register.  
+The Instruction Register provides the opcode and operand to the Control Unit.  
+The Control Unit drives the control signals (e.g., pc_load, regR0_load, alu_op, etc.) to the appropriate modules (e.g., PC, registers, ALU).  
+The ALU performs the operation based on the alu_op control signal and the values in the registers.  
+The Output Register is updated if there’s an output instruction (OUT).  
+The Program Counter is updated after each instruction, based on whether it's a normal instruction or a jump instruction (e.g., JMP, JC, JZ).  
 
 Files:
 
