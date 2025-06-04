@@ -82,6 +82,16 @@ The ALU performs the operation based on the alu_op control signal and the values
 The Output Register is updated if there’s an output instruction (OUT).  
 The Program Counter is updated after each instruction, based on whether it's a normal instruction or a jump instruction (e.g., JMP, JC, JZ).  
 
+Explanation of the Top-Level CPU Module:  
+Program Counter (PC): This generates the address for the instruction to be fetched from ROM. It either increments normally or loads a new address in the case of a jump.  
+Instruction Register (IR): Holds the fetched instruction and splits it into opcode and operand.  
+Control Unit (CU): It decodes the opcode and generates control signals for the CPU's operation, like whether to load a register, perform an ALU operation, or jump to a new address.  
+ALU: The ALU executes arithmetic or logical operations based on the alu_op control signal and the operands provided (either from the registers or the instruction).  
+Registers: regA, regR0, and regR1 hold intermediate data. regA holds the accumulator, and regR0/regR1 hold the register values.  
+Output Register (Out): If the OUT instruction is executed, the value in regA is moved to out_reg and can be sent to I/O.  
+ROM: This holds the program instructions. The Program Counter provides the address to fetch instructions.  
+Halt Logic: The CPU halts when the HLT instruction is encountered.  
+
 Files:
 
 8-bit Register Module - reg8.v  
