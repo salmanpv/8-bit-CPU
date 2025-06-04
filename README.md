@@ -58,6 +58,22 @@ Advances the CPU through fetch → decode → execute cycles
 | **EXECUTE** | Perform the instruction (ALU, jump, etc.)    |
 
 
+| Opcode | Mnemonic    | Bytes | Operand Field Used? | Second Byte Used? | Description                              |
+| ------ | ----------- | ----- | ------------------- | ----------------- | ---------------------------------------- |
+| 0000   | NOP         | 1     | ❌ Ignored           | ❌ No              | Do nothing. Moves to next instruction.   |
+| 0001   | LDI R0, imm | 2     | ❌ Ignored           | ✅ Yes (imm8)      | Load immediate 8-bit value into R0.      |
+| 0010   | ADD R0      | 1     | ❌ Ignored           | ❌ No              | Add R0 to A, result → A.                 |
+| 0011   | SUB R0      | 1     | ❌ Ignored           | ❌ No              | Subtract R0 from A, result → A.          |
+| 0100   | LDI R1, imm | 2     | ❌ Ignored           | ✅ Yes (imm8)      | Load immediate 8-bit value into R1.      |
+| 0101   | ADD R1      | 1     | ❌ Ignored           | ❌ No              | Add R1 to A, result → A.                 |
+| 0110   | SUB R1      | 1     | ❌ Ignored           | ❌ No              | Subtract R1 from A, result → A.          |
+| 0111   | OUT         | 1     | ❌ Ignored           | ❌ No              | Output the value of A.                   |
+| 1000   | JMP addr    | 2     | ❌ Ignored           | ✅ Yes (addr8)     | Jump to 8-bit address unconditionally.   |
+| 1001   | JZ addr     | 2     | ❌ Ignored           | ✅ Yes (addr8)     | Jump to 8-bit address if zero flag set.  |
+| 1010   | JC addr     | 2     | ❌ Ignored           | ✅ Yes (addr8)     | Jump to 8-bit address if carry flag set. |
+| 1111   | HLT         | 1     | ❌ Ignored           | ❌ No              | Halt execution permanently.              |
+
+
 Files:
 
 8-bit Register Module - reg8.v  
