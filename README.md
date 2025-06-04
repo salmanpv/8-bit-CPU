@@ -103,6 +103,12 @@ write_json cpu.json
 
 netlistsvg cpu.json -o cpu.svg  
 
+Icarus verilog commands:  
+
+iverilog -o sim_output design.v testbench.v  
+vvp sim_output  
+gtkwave wave.vcd  
+
 Files:
 
 8-bit Register Module - reg8.v  
